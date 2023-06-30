@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  backup-script:
+    image: backup-script:latest
+    volumes:
+     - <local backup folder>:/opt/
+     - $HOME/.ssh/id_rsa:/srv/id_rsa
+    environment:
+     - DISCORD_WEBHOOK="<Discord webhook url>"
+     - SSH_USER="<ssh user>"
+     - SSH_KEY="/srv/id_rsa"
+     - INVENTORY_FILE="./inventory.yml"
+     - LOCAL_BACKUP_FOLDER="/opt"
+     - BACKUP_START_HOUR_UTC=2
+     - BASIC_RETENTION={"daily": {"qtty": 7, "age": 7}, "weekly": {"qtty": 4, "age": 30}, "monthly": {"qtty": 12, "age": 365}}
+    restart: always

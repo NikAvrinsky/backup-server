@@ -1,0 +1,12 @@
+host1:
+  url: <host url>
+  ssh-port: <custom ssh port>
+  prefix: <custom backup file prefix>
+  folders:
+    postgres: <remote backup folder>
+
+host2:
+  url: <host url>
+  folders:
+    postgres: <remote backup folder>
+
